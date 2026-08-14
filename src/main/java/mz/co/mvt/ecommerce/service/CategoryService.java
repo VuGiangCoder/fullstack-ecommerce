@@ -1,12 +1,18 @@
 package mz.co.mvt.ecommerce.service;
 
-import java.util.List;
+import java.util.UUID;
 
 import mz.co.mvt.ecommerce.model.Category;
+import mz.co.mvt.ecommerce.payload.CategoryDTO;
+import mz.co.mvt.ecommerce.payload.CategoryResponse;
 
 public interface CategoryService {
-    List<Category> getAllCategories();
-    void addCategory(Category category);
-    String deleteCategory(Long categoryId);
-    Category updateCategory(Long categoryId, Category category);
+
+    CategoryResponse getAllCategories(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
+    
+    CategoryDTO addCategory(CategoryDTO categoryDTO);
+    
+    CategoryDTO deleteCategory(UUID categoryId);
+    
+    CategoryDTO updateCategory(UUID categoryId, CategoryDTO categoryDTO);
 }
